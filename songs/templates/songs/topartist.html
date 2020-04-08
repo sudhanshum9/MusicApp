@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MusicApp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="Black">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/index/">MusicApp</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index/">Home</a></li>
+        <li><a href="/topsongs/">Top Songs</a></li>
+        <li><a href="/topartist/">trending artist</a></li>
+        <li><a href="#">User info</a></li>
+      </ul>
+          <ul class="nav navbar-nav navbar-right" >
+            {% if user.is_authenticated  %}
+            <l1><a href="/logout/">Logout</a></l1>
+            {% else %}
+            <li><a href="/login/">Login</a></li>
+            <li><a href="/register/">Register</a></li>
+            {% endif %}
+          </ul>
+            
+        </div>
+    </nav>
+
+
+<div class="container">
+  <h3>Find the best music collection here</h3>
+  <p>Songs that you have choosen.</p>
+
+
+<table class="table">
+    <thead>
+      <tr>
+          <th>S.No</th>
+        <th>Artist</th>
+        <th>Date of Birth</th>
+        <th>Bio</th>
+       
+
+      </tr>
+    </thead>
+
+    <tbody>
+     {% for song in artists %}
+      <tr>
+        <td>{{ song.id }}</td>
+        <td>{{ song.artist }}</td>
+        <td>{{ song.DOB }}</td>
+        <td>{{ song.Bio }}</td>
+        <td>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+
+</div>
+<!--
+<div class="container">
+  <form action="/addsong/">
+    {% csrf_token %}
+  <button type="submit">Add song</button>
+</form>
+</div>
+-->
+</body>
+</html>

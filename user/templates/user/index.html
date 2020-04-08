@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MusicApp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+<!--
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="#">MusicApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="topsongs/">topsongs</a>
+            <a class="nav-item nav-link" href="topartist/">trending artist</a>
+            <a class="nav-item nav-link" href="topartist/">User info</a>
+          </div>
+           Navbar Right Side 
+          <div class="navbar-nav">
+            {% if user.is_authenticated  %}
+            <a class="nav-item nav-link" href="/logout/">Logout</a>
+            {% else %}
+            <a class="nav-item nav-link" href="/login/">Login</a>
+            <a class="nav-item nav-link" href="/register/">Register</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>-->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/index/">MusicApp</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/index/">Home</a></li>
+      <li><a href="topsongs/">Top Songs</a></li>
+      <li><a href="topartist/">trending artist</a></li>
+      <li><a href="#">User info</a></li>
+    </ul>
+        <ul class="nav navbar-nav navbar-right" >
+          {% if user.is_authenticated  %}
+          <l1><a href="/logout/">Logout</a></l1>
+          {% else %}
+          <li><a href="/login/">Login</a></li>
+          <li><a href="/register/">Register</a></li>
+          {% endif %}
+        </ul>
+          
+      </div>
+  </nav>
+
+<div class="container">
+  <h3>Find the best music collection here</h3>
+  <p>Songs that you have choosen.</p>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Songs</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
+      </tr>
+      <tr class="success">
+        <td>Success</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr class="danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr class="info">
+        <td>Info</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+      <tr class="warning">
+        <td>Warning</td>
+        <td>Refs</td>
+        <td>bo@example.com</td>
+      </tr>
+      <tr class="active">
+        <td>Active</td>
+        <td>Activeson</td>
+        <td>act@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+{%load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MusicApp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="Black">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/index/">MusicApp</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index/">Home</a></li>
+        <li><a href="/topsongs/">Top Songs</a></li>
+        <li><a href="/topartist/">trending artist</a></li>
+        <li><a href="#">User info</a></li>
+      </ul>
+          <ul class="nav navbar-nav navbar-right" >
+            {% if user.is_authenticated  %}
+            <l1><a href="/logout/">Logout</a></l1>
+            {% else %}
+            <li><a href="/login/">Login</a></li>
+            <li><a href="/register/">Register</a></li>
+            {% endif %}
+          </ul>
+            
+        </div>
+    </nav>
+
+<div class="container">
+  <h3>Find the best music collection here</h3>
+  <p>Songs that you have choosen.</p>
+</div>
+
+
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+
+
+
+<div class="container-section">
+  <div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Login</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Sign In</button>
+        </div>
+        <div class="borde-top pt-3">
+            <small class="text-muted">
+                Need Have An Account?<a class="ml-2" href="{% url 'register' %}">Sign up</a>
+            </small>
+        </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+</body>
